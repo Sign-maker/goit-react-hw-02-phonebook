@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import { theme } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
-
   *,
 *::after,
 *::before {
@@ -59,7 +57,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: ${theme.spacing(5)} ;
+  font-size: ${props => props.theme.spacing(5)} ;
 }
 
 code {

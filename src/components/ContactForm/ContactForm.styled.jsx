@@ -1,23 +1,22 @@
 import styled from 'styled-components';
-import { theme } from 'styles/theme';
 
 export const Form = styled.form`
   width: 100%;
   background-color: #83b0f3;
-  padding: ${theme.spacing(5)};
-  margin-bottom: ${theme.spacing(4)};
+  padding: ${props => props.theme.spacing(5)};
+  margin-bottom: ${props => props.theme.spacing(4)};
 `;
 
 export const Label = styled.label`
   display: block;
-  margin-bottom: ${theme.spacing(2)};
+  margin-bottom: ${props => props.theme.spacing(2)};
 `;
 
 export const Input = styled.input`
   font-size: inherit;
   width: 100%;
-  padding: ${theme.spacing(2)};
-  margin-bottom: ${theme.spacing(5)};
+  padding: ${props => props.theme.spacing(2)};
+  margin-bottom: ${props => props.theme.spacing(5)};
   border: 2px solid transparent;
 
   outline: none;
@@ -30,14 +29,14 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  padding: ${theme.spacing(3)};
-  box-shadow: ${theme.shadows.small};
+  padding: ${props => props.theme.spacing(3)};
+  box-shadow: ${props => props.theme.shadows.small};
   background-color: darkblue;
-  border-radius: ${theme.spacing(2)};
+  border-radius: ${props => props.theme.spacing(2)};
   color: white;
   display: block;
   margin: 0 auto;
-  transition: background-color ${theme.transition};
+  transition: background-color ${props => props.theme.transition};
   &:disabled {
     background-color: #abbcd0;
     pointer-events: none;
