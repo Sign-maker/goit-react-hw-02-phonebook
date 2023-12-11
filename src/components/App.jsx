@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
+import { Container } from './Container/Container.styled';
 import { Filter } from './Filter/Filter';
 import initialContacts from '../datajson/initContacts.json';
+import { Title } from './Title/Title.styled';
+import { Subtitle } from './Subtitle/Subtitle.styled';
 
 export class App extends Component {
   state = {
@@ -59,16 +62,16 @@ export class App extends Component {
     const filteredContacts = this.getFilteredContacts();
 
     return (
-      <>
-        <h1>Phonebook</h1>
+      <Container>
+        <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
+        <Subtitle>Contacts</Subtitle>
         <Filter value={filter} onFilterChange={this.onFilterChange} />
         <ContactList
           contacts={filteredContacts}
           onItemDelete={this.onItemDelete}
         />
-      </>
+      </Container>
     );
   }
 }

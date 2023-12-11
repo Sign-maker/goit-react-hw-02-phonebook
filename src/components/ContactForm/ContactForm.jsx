@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { Button, Form, Input, Label } from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -15,8 +16,8 @@ export class ContactForm extends Component {
   };
 
   onSubmitHandler = event => {
-    const { name, number } = this.state;
     event.preventDefault();
+    const { name, number } = this.state;
     this.props.onSubmit({ name: name.trim(), number: number.trim() });
     this.setState({ name: '', number: '' });
   };
@@ -24,29 +25,31 @@ export class ContactForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.onSubmitHandler}>
-        <label htmlFor={this.nameInputId}>Name</label>
-        <input
+      <Form onSubmit={this.onSubmitHandler}>
+        <Label htmlFor={this.nameInputId}>Name</Label>
+        <Input
           id={this.nameInputId}
+          placeholder="Vasyl Pupkin"
           type="text"
           name="name"
           value={name}
           onChange={this.inputHandler}
           required
         />
-        <label htmlFor={this.telInputId}>Number</label>
-        <input
+        <Label htmlFor={this.telInputId}>Number</Label>
+        <Input
           id={this.telInputId}
+          placeholder="999111999"
           type="tel"
           name="number"
           value={number}
           onChange={this.inputHandler}
           required
         />
-        <button type="submit" disabled={!(name && number)}>
+        <Button type="submit" disabled={!(name && number)}>
           Add contact
-        </button>
-      </form>
+        </Button>
+      </Form>
     );
   }
 }
