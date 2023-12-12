@@ -7,6 +7,7 @@ import { Filter } from './Filter/Filter';
 import initialContacts from '../datajson/initContacts.json';
 import { Title } from './Title/Title.styled';
 import { Subtitle } from './Subtitle/Subtitle.styled';
+import { ContactFormFormik } from './ContactFormFormik/ContactFormFormik';
 
 export class App extends Component {
   state = {
@@ -64,7 +65,8 @@ export class App extends Component {
     return (
       <Container>
         <Title>Phonebook</Title>
-        <ContactForm onSubmit={this.addContact} />
+        {/* <ContactForm onSubmit={this.addContact} /> */}
+        <ContactFormFormik onSubmit={this.addContact} />
         <Subtitle>Contacts</Subtitle>
         <Filter value={filter} onFilterChange={this.onFilterChange} />
         <ContactList
